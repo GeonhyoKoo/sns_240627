@@ -7,7 +7,7 @@ layout:decorate="~{layout/defaultLayout}">
 		<div class="sign-up-box">
 			<h1 class="m-4 font-weight-bold">회원가입</h1>
 			<form id="signUpForm" method="post" action="/user/sign-up">
-				<span class="sign-up-subject">아이디</span>
+				<span class="sign-up-subject">ID</span>
 				<div class="d-flex ml-3 mt-3">
 					<input type="text" id="loginId" name="loginId" class="form-control col-6" placeholder="ID를 입력해주세요">
 					<button type="button" id="loginIdCheckBtn" class="btn btn-success">중복확인</button>
@@ -19,17 +19,17 @@ layout:decorate="~{layout/defaultLayout}">
 					<div id="idCheckOk" class="small text-success d-none">사용 가능한 ID 입니다.</div>
 				</div>
 				
-				<span class="sign-up-subject">비밀번호</span>
+				<span class="sign-up-subject">Password</span>
 				<div class="m-3">
 					<input type="password" id="password" name="password" class="form-control col-6" placeholder="비밀번호를 입력하세요">
 				</div>
 	
-				<span class="sign-up-subject">비밀번호 확인</span>
+				<span class="sign-up-subject">Confirm password</span>
 				<div class="m-3">
 					<input type="password" id="confirmPassword" name="confirmPassword" class="form-control col-6" placeholder="비밀번호를 입력하세요">
 				</div>
 	
-				<span class="sign-up-subject">이름</span>
+				<span class="sign-up-subject">Name</span>
 				<div class="m-3">
 					<input type="text" id="name" name="name" class="form-control col-6" placeholder="이름을 입력하세요">
 				</div>

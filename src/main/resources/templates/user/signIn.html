@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html 
       xmlns:th="http://www.thymeleaf.org"
@@ -12,16 +11,16 @@
 			<form id="loginForm" action="/user/sign-in" method="post">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text">ID</span>
+						<span class="input-group-text">아이디</span>
 					</div>
-					<input type="text" class="form-control" name="loginId">
+					<input type="text" class="form-control" name="loginId" id="loginId">
 				</div>
 				
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text">PW</span>
+						<span class="input-group-text">비밀번호</span>
 					</div>
-					<input type="password" class="form-control" name="password">
+					<input type="password" class="form-control" name="password" id="password">
 				</div>
 				
 				<input type="submit" class="btn btn-block btn-info" value="로그인">
@@ -29,4 +28,53 @@
 			</form>
 		</div>
 	</div>
+	
 </section>
+
+<th:block layout:fragment="script">
+	<script>
+		$(document).ready(function(){
+			
+			
+			$("#loginForm").on("submit" , function(e){
+				
+				e.preventDefault();
+				
+				
+				// validation
+				let loginId = $("#loginId").val().trim();
+				let password = $("#password").val();
+				
+				if (!loginId){
+					alert("아이디 입력해주세요.");
+					return false;
+				}
+				if (!password){
+					alert("패스워드를 입력해주세요.");
+					return false;
+				}
+				
+				
+				let url = $(this).attr("action");
+				let params = $(this).serialize();
+				console.log(url);
+				console.log(params);
+				
+				$.post(url, params)
+				.done(function(data){
+					if (data.code == 200){
+						location.href = "/timeline"
+					} else{
+						alert(data.error_message);
+					}
+				});
+				
+			});
+			
+		});		
+		
+	
+	</script>
+</th:block>
+
+</html>

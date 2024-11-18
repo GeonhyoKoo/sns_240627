@@ -11,10 +11,17 @@
 				</div>
 				
 				<!--  로그인 -->
-				<div>
-					<span>님 안녕하세요.</span>
-					<a href="#">로그인</a>
+				<!-- session 정보 있을 시 -->
+				<div th:if="${session.userLoginId != null}">
+					<span th:text="${session.userLoginId} + '님 안녕하세요.'"></span>
+					<a href="/user/sign-out">로그아웃</a>
 				</div>
+				
+				<!--  session 정보 없을 시 -->
+				<div th:unless="${session.userLoginId != null}">
+					<a href="/user/sign-in-view">로그인</a>
+				</div>
+				
 			</div>
 		</header>
 		
